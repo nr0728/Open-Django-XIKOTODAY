@@ -44,7 +44,7 @@ XIKOTODAY由XIKOGroup的胡哲涵开发，因本人无力维护且发现其的�
 ### 在你的计算机上面部署本项目
 
 ```
-git clone http://github.com/lovehuiyuanai/XIKO-py/tree/master  
+git clone http://github.com/lovehuiyuanai/Open-Django-XIKOTODAY
 ```
 
 使用Git拉取本项目
