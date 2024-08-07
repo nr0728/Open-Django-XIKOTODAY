@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>编辑个人资料</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        button[type="submit"]:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<head>
+    <title>编辑个人资料</title>
+</head>
+<body>
+    <h2>编辑你的个人主页</h2>
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            <label for="id_school">学校：</label>
+            {{ form.school }}
+        </p>
+        <p>
+            <label for="id_age">年龄：</label>
+            {{ form.age }}
+        </p>
+        <p>
+            <label for="id_motto">座右铭：</label>
+            {{ form.motto }}
+        </p>
+        <p>
+            <label for="id_full_name">完整姓名：</label>
+            {{ form.full_name }}
+        </p>
+        <p>
+            <label for="id_interests">兴趣爱好：</label>
+            {{ form.interests }}
+        </p>
+        <p>
+            <label for="id_location">所在位置：</label>
+            {{ form.location }}
+        </p>
+        <p>
+            <label for="id_b_Year">出生年：</label>
+            {{ form.b_Year }}
+        </p>
+        <p>
+            <label for="id_b_Month">出生月：</label>
+            {{ form.b_Month }}
+        </p>
+        <p>
+            <label for="id_b_Day">出生日：</label>
+            {{ form.b_Day }}
+        </p>
+        <p>
+            <label for="id_favorite_anime_character">喜欢的动漫角色：</label>
+            {{ form.favorite_anime_character }}
+        </p>
+        <p>
+            <label for="id_favorite_anime">喜欢的动漫：</label>
+            {{ form.favorite_anime }}
+        </p>
+        <p>
+            <label for="id_favorite_song">喜欢的歌曲：</label>
+            {{ form.favorite_song }}
+        </p>
+        <p>
+            <label for="id_dream_destination">想去的地方：</label>
+            {{ form.dream_destination }}
+        </p>
+        <p>
+            <label for="id_favorite_movie">喜欢的电影：</label>
+            {{ form.favorite_movie }}
+        </p>
+        <p>
+            <label for="id_favorite_book">喜欢的书籍：</label>
+            {{ form.favorite_book }}
+        </p>
+        <p>
+            <label for="id_dream">梦想：</label>
+            {{ form.dream }}
+        </p>
+        <button type="submit">提交</button>
+    </form>
+</body>
+</html>
+

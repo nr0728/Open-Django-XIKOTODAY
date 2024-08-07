@@ -1,0 +1,30 @@
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+
+  <div class="topic-link">
+    <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a>
+  </div>
+
+  <div class="new-entry-section">
+    <p>勇敢滴少年啊快来写篇帖子！</p>
+    <form action="{% url 'learning_logs:new_entry' topic.id %}" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="submit-button" name="submit">发布！</button>
+    </form>
+  </div>
+
+  <style>
+    .submit-button {
+      border-radius: 10px; /* 添加圆角 */
+      background-color: blue; /* 蓝色背景 */
+      color: white; /* 修改文字颜色为白色 */
+      padding: 10px 20px; /* 增加内边距，使按钮稍微变大 */
+      border: none; /* 去掉按钮边框 */
+      cursor: pointer; /* 鼠标悬停时显示手型指针 */
+    }
+  </style>
+
+{% endblock content %}
+

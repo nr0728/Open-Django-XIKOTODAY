@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{user_profile.user.username}}的个人主页</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color:  #e6e6fa;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #008080;
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .profile-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+            animation: scaleUp 0.5s ease; /* 添加放大动画 */
+        }
+
+        @keyframes scaleUp {
+            from {
+                transform: scale(0.9); /* 从90%开始 */
+            }
+            to {
+                transform: scale(1); /* 放大到100% */
+            }
+        }
+
+        .profile-card h2 {
+            color: #004d4d;
+            border-bottom: 2px solid #26c6da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .profile-card p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .username {
+            font-size: 28px;
+            margin-bottom: 5px;
+            color: #000
+        }
+
+        .motto {
+            font-style: normal;
+            color: d64331;
+            margin-top: 5px;
+            animation: none; /* 取消座右铭的动画 */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="username">{{ user_profile.user.username }}</h1>
+    <p class="motto">{{ user_profile.motto }}</p>
+    <div class="profile-card">
+        <h2>基本信息</h2>
+        <p>真实姓名: {{ user_profile.full_name }}</p>
+        <p>学校: {{ user_profile.school }}</p>
+        <p>年龄: {{ user_profile.age }}</p>
+    </div>
+    <div class="profile-card">
+        <h2>详细信息</h2>
+        <p>兴趣: {{ user_profile.interests }}</p>
+        <p>现处在: {{ user_profile.location }}</p>
+        <p>出生日期: {{ user_profile.b_Year }} 年 {{ user_profile.b_Month }} 月 {{ user_profile.b_Day }} 日</p>
+    </div>
+</body>
+</html>
+
+

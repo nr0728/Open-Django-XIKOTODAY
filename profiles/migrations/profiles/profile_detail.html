@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>Welcome to XIKOTODAY</h1>
+{% endblock header %}
+
+{% block content %}
+  <h2>User Profile Detail</h2>
+  <p>Username: {{ user_profile.user.username }}</p>
+  <p>Full Name: {{ user_profile.full_name }}</p>
+  <p>Age: {{ user_profile.age }}</p>
+  <p>Location: {{ user_profile.location }}</p>
+  <p>School: {{ user_profile.school }}</p>
+  <p>Birthday: {{ user_profile.get_birthday }}</p>
+  <p>Interests: {{ user_profile.interests }}</p>
+  <p>Motto: {{ user_profile.motto }}</p>
+  <!-- 其他页面内容 -->
+{% endblock content %}

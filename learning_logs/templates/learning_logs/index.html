@@ -1,0 +1,91 @@
+{% extends "learning_logs/base.html" %}
+
+{% block header %}
+  <style>
+    .header-container {
+      position: relative;
+      padding: 10px;
+    }
+    .user-bar {
+      background-color: #f2f2f2;
+      padding: 10px;
+      text-align: right;
+    }
+    .user-info {
+      display: inline-block;
+    }
+    .user-actions {
+      display: inline-block;
+    }
+    .logout-button, .register-button, .login-button {
+      padding: 5px 10px;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+    .copyright-container {
+      position: fixed;
+      top: 50%;
+      right: 10px;
+      transform: translate(0%, -50%);
+      padding: 20px;
+      border-radius: 10px;
+      background-color: F8F8FF;
+      z-index: 1;
+    }
+    .year-info {
+      font-size: 12px;
+      
+    }
+  </style>
+
+  <div class="header-container">
+    <div class="user-bar">
+      {% if user.is_authenticated %}
+        <div class="user-info">
+          Hello, {{ user.username }}.
+        </div>
+        <div class="user-actions">
+          <a href="{% url 'users:logout' %}" class="logout-button">退出登录</a>
+        </div>
+      {% else %}
+        <div class="user-actions">
+          <a href="{% url 'users:register' %}" class="register-button">注册</a> 
+          <a href="{% url 'users:login' %}" class="login-button">登录</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="copyright-container">
+    <div class="year-info">© 2024 胡哲涵</div>
+    <div class="copyright">All rights reserved.</div>
+  </div>
+{% endblock header %}
+
+{% block content %}
+  <style>
+    .main-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .content-section {
+      margin-bottom: 20px;
+    }
+  </style>
+
+  <div class="main-content">
+    <p>总之，能做什么就该去做，否则日后后悔就不好了吧。———《新世纪福音战士》</p>
+    <section class="content-section">
+      <h2>
+      </h2>
+    </section>
+    <section class="content-section">
+    </section>
+  </div>
+{% endblock content %}
+
+

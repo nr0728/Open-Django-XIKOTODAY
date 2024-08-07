@@ -1,0 +1,32 @@
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+  <div class="new-topic-form">
+    <h2>创建社团</h2>
+    <form action="{% url 'learning_logs:new_topic' %}" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="add-topic-button">社团，启动！</button>
+    </form>
+  </div>
+
+  <style>
+    .new-topic-form {
+      margin-top: 20px;
+    }
+
+    .new-topic-form h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .add-topic-button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+{% endblock content %}

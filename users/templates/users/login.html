@@ -1,0 +1,28 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block content %}
+  <div style="max-width: 300px; margin: 0 auto; text-align: center;">
+    <h2>登录</h2>
+    {% if form.errors %}
+      <p style="color: red;">用户名和密码不匹配，请重试。</p>
+    {% endif %}
+
+    <form method="post" action="{% url 'users:login' %}" style="border: 1px solid #ccc; background-color: #f4f4f4; padding: 20px; border-radius: 10px; display: flex; flex-direction: column; align-items: center;">
+      {% csrf_token %}
+      <div style="margin-bottom: 10px; display: flex; flex-direction: column; align-items: flex-start;">
+        <label for="id_username">用户名:</label>
+        {{ form.username }}
+      </div>
+      <div style="margin-bottom: 10px; display: flex; flex-direction: column; align-items: flex-start;">
+        <label for="id_password">密码:</label>
+        {{ form.password }}
+      </div>
+
+      <button type="submit" style="padding: 10px 20px; border: none; border-radius: 5px; background-color: #007bff; color: #fff; cursor: pointer;">登录</button>
+      <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
+    </form>
+  </div>
+{% endblock content %}
+
+
+

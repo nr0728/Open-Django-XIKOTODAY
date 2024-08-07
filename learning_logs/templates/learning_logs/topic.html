@@ -1,0 +1,77 @@
+{% extends 'learning_logs/base.html' %}
+{% load static %}
+{% block content %}
+
+  <div class="topic-container" style="margin-bottom: 20px;">
+    <p>社团: {{ topic }}</p>
+
+    <p><a class="new-entry-link" href="{% url 'learning_logs:new_entry' topic.id %}">写篇帖子</a></p>
+    <div class="parent-container">
+      <ul class="entry-list">
+        {% if entries %}
+          {% for entry in entries %}
+            <li class="entry-item">
+              <div class="entry-meta">
+                {% if entry.anonymous %}
+                  <strong>匿名用户</strong>
+                {% else %}
+                  <strong>{{ entry.publisher_user.username }}
+                    {% if entry.is_verified %}
+                      <img src="{% static 'img/langou.png' %}" alt="认证图标">
+                    {% endif %}
+                  </strong>
+                {% endif %}
+                <br>
+                <i>{{ entry.date_added|date:'M d, Y H:i' }}</i>
+              </div>
+              <div class="entry-content">
+                {{ entry.text|linebreaks }}
+              </div>
+            </li>
+          {% endfor %}
+        {% else %}
+          <li class="entry-item">
+            来吧，抢沙发啦！先到先得！
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+
+  <style>
+    /* 图像大小调整样式 */
+    img[src*="langou.png"] {
+      width: 20px; /* 设置宽度 */
+      height: auto; /* 保持宽高比 */
+    }
+
+    .new-entry-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: blue;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+    /* 容器元素样式 */
+    .parent-container {
+      display: flex;
+      justify-content: center; /* 水平居中 */
+      align-items: center; /* 垂直居中 */
+      min-height: 100vh; /* 确保父元素高度至少为视口高度，以看到垂直居中的效果 */
+    }
+
+    .entry-item {
+      list-style-type: none;
+      background-color: #fff;
+      margin-bottom: 20px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 640px;
+    }
+    .entry-meta {
+      margin-bottom: 10px;
+      position: relative;
+    }
+  </style>
+{% endblock content %}

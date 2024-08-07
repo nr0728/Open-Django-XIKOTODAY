@@ -1,0 +1,60 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block content %}
+  <div class="topic-list">
+    <p>社团</p>
+
+    <div class="topic-container">
+      {% for topic in topics %}
+        <div class="topic-item">
+          <div class="topic-box">
+            <a href="{% url 'learning_logs:topic' topic.id %}" class="topic-name">{{ topic }}</a>
+          </div>
+        </div>
+      {% empty %}
+        <div class="topic-item">
+          No topics have been added yet.
+        </div>
+      {% endfor %}
+    </div>
+
+    <a class="new-topic-button" href="{% url 'learning_logs:new_topic' %}">创建社团</a>
+  </div>
+
+  <style>
+    .new-topic-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: blue;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+
+    .topic-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px; /* 添加间距 */
+    }
+
+    .topic-item {
+      flex: 1 1 calc(25% - 10px); /* 控制每个topic占据的宽度，以确保一行显示多个topic */
+      box-sizing: border-box;
+    }
+
+    .topic-box {
+      background-color: white;
+      border-radius: 10px;
+      padding: 10px;
+      height: 100%; /* 让topic-box充满其父元素的高度 */
+      box-sizing: border-box;
+    }
+
+    .topic-name {
+      display: block;
+      margin-top: 10px; /* 调整topic名称的位置 */
+    }
+  </style>
+
+{% endblock content %}
